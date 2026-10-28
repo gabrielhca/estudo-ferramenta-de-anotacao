@@ -1,0 +1,48 @@
+schema: spec-driven
+
+# Project context (optional)
+# Add only constraints that should guide OpenSpec artifacts and workflows.
+# Include constraints an agent cannot infer by reading the code.
+# Keep general project documentation and discoverable codebase facts out.
+context: |
+  Aplicação desktop offline-first para curadoria e anotação de imagens, com suporte a múltiplos especialistas.
+  Stack:
+  - Python
+  - PySide6/QML
+  - SQLite
+  - pytest
+  Arquitetura:
+  - UI
+  - Services
+  - Domain
+  - Repositories (interfaces)
+  - Storage (implementa os Repositories)
+  Regras:
+  - Offline-first: sem dependência de internet ou serviços em nuvem.
+  - Somente o Storage acessa o SQLite; a persistência passa pelos Repositories.
+  - Regras de negócio não ficam na UI.
+  - Perguntas e classes vêm da configuração do coordenador, nunca fixas no código.
+  - Escrever os artefatos em português (PT-BR); identificadores de código em inglês.
+  - Não inventar requisitos; dúvidas viram "Questões em aberto".
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
