@@ -25,24 +25,28 @@ context: |
   - Escrever os artefatos em português (PT-BR); identificadores de código em inglês.
   - Não inventar requisitos; dúvidas viram "Questões em aberto".
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always state what is out of scope
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  proposal:
+    - Liste na seção Why os IDs das histórias de usuário cobertas (por exemplo US01, US02).
+    - Inclua em What Changes um item "Fora de escopo" com o que fica para outras changes.
+    - Use somente nomes de capacidade do mapa de capacidades; se nenhum servir, diga isso explicitamente e proponha o novo nome.
+  specs:
+    - 'Termine o nome de cada requisito com o ID da US de origem entre parênteses, por exemplo "Criar projeto (US01)".'
+    - Cada critério de aceitação aprovado na exploração MUST virar ao menos um Scenario.
+    - Inclua cenários de erro/validação (entrada inválida, item inexistente), não só o caminho feliz.
+    - Não mencione tecnologia, framework, classe ou tabela.
+  design:
+    - Registre formatos de arquivo (pacote, exportação, anotações) como decisões explícitas com alternativas.
+    - Se a change não exigir decisões novas, mantenha o design curto e diga "segue os padrões existentes".
+  tasks:
+    - Cada tarefa MUST caber em uma única conversa de implementação (alvo de até ~1h de trabalho).
+    - Cada tarefa MUST citar o(s) Scenario(s) da spec que ela atende e como verificar (teste ou comando).
+    - Escreva o teste junto da tarefa que implementa o comportamento, não em um grupo final.
 
-# Per-operation guidance (optional)
-# Add advisory guidance for how apply and archive work should be conducted.
-# This is separate from artifact rules above.
-# Example:
-#   operations:
-#     apply:
-#       guidance:
-#         - Keep test summaries concise
-#     archive:
-#       guidance:
-#         - Summarize the archive outcome before finishing
+operations:
+  apply:
+    guidance:
+      - Implemente uma única tarefa por vez e pare para revisão humana.
+  archive:
+    guidance:
+      - Só arquive depois que todos os testes passarem e os cenários da spec forem conferidos.

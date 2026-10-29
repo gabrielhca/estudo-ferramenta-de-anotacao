@@ -1,0 +1,8 @@
+# Ambientes Virtuais Python
+venv/
+env/
+.env
+__pycache__/
+
+# Arquivos locais do OpenSpec/IA
+.gemini/
